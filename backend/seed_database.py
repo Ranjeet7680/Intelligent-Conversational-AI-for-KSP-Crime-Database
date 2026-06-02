@@ -5,8 +5,9 @@ import random
 from datetime import datetime, timedelta
 
 def seed_db():
-    dataset_dir = r"C:\Users\Victus\OneDrive\Desktop\Datathon 2026\DATASET"
-    db_path = r"C:\Users\Victus\OneDrive\Desktop\Datathon 2026\backend\ksp_crimes.db"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    dataset_dir = os.path.join(os.path.dirname(BASE_DIR), "DATASET")
+    db_path = os.path.join(BASE_DIR, "ksp_crimes.db")
     
     # Ensure backend directory exists
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
@@ -15,6 +16,10 @@ def seed_db():
     cursor = conn.cursor()
     
     print("Creating database schema...")
+    
+    cursor.execute("DROP TABLE IF EXISTS cases")
+    cursor.execute("DROP TABLE IF EXISTS accused")
+    cursor.execute("DROP TABLE IF EXISTS case_accused")
     
     # 1. Create table for simulated FIR cases
     cursor.execute("""

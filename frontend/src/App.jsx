@@ -12,6 +12,8 @@ import {
 
 const KARNATAKA_LAT_LON = [12.9716, 77.5946] // Centered on Bengaluru City for premium tactical default
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+
 // --- App Logo (custom ChatGPT-generated CrimeGPT logo) ---
 const AppLogo = ({ size = 'md' }) => {
   const dim = size === 'sm' ? 32 : size === 'lg' ? 64 : 40
@@ -222,7 +224,7 @@ export default function App() {
   // --- API Fetch Handlers ---
   const fetchTrends = async () => {
     try {
-      const res = await fetch('/api/stats/trends')
+      const res = await fetch(`${API_BASE}/api/stats/trends`)
       const data = await res.json()
       setTrendData(data)
     } catch (e) { console.error(e) }
@@ -230,7 +232,7 @@ export default function App() {
 
   const fetchDistrictStats = async () => {
     try {
-      const res = await fetch('/api/stats/districts')
+      const res = await fetch(`${API_BASE}/api/stats/districts`)
       const data = await res.json()
       setMapDistricts(data)
     } catch (e) { console.error(e) }
@@ -238,7 +240,7 @@ export default function App() {
 
   const fetchNetwork = async () => {
     try {
-      const res = await fetch('/api/stats/network')
+      const res = await fetch(`${API_BASE}/api/stats/network`)
       const data = await res.json()
       setNetworkData(data)
     } catch (e) { console.error(e) }
@@ -246,7 +248,7 @@ export default function App() {
 
   const fetchCases = async () => {
     try {
-      let url = `/api/cases?page=${casePage}&limit=10`
+      let url = `${API_BASE}/api/cases?page=${casePage}&limit=10`
       if (searchQuery) url += `&q=${searchQuery}`
       if (filterDistrict) url += `&district=${filterDistrict}`
       if (filterCrime) url += `&crime_type=${filterCrime}`
@@ -266,7 +268,7 @@ export default function App() {
       return
     }
     try {
-      const res = await fetch(`/api/cases/${id}`)
+      const res = await fetch(`${API_BASE}/api/cases/${id}`)
       const data = await res.json()
       setSelectedCase(data)
       setCaseTabMode('detail')
@@ -326,7 +328,7 @@ export default function App() {
     setIsTyping(true)
     
     try {
-      const res = await fetch('/api/chat', {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMsg })

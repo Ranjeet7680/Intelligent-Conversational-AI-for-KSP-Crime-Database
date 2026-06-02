@@ -20,7 +20,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DB_PATH = r"C:\Users\Victus\OneDrive\Desktop\Datathon 2026\backend\ksp_crimes.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "ksp_crimes.db")
 
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)

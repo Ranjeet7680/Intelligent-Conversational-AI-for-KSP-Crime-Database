@@ -345,7 +345,7 @@ body {
 .px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
 .px-10 { padding-left: 2.5rem !important; padding-right: 2.5rem !important; }
 .px-16 { padding-left: 4rem !important; padding-right: 4rem !important; }
-.py-2.5 { padding-top: 0.625rem !important; padding-bottom: 0.625rem !important; }
+.py-2\.5 { padding-top: 0.625rem !important; padding-bottom: 0.625rem !important; }
 .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
 .py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
 .py-5 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
@@ -506,8 +506,8 @@ nav button {
 .text-slate-400 { color: var(--text-muted) !important; }
 .text-slate-500 { color: #64748b !important; }
 .text-slate-300 { color: #cbd5e1 !important; }
-.text-[#00f0ff] { color: var(--accent-cyan) !important; }
-.text-[#ff2e2e] { color: var(--accent-red) !important; }
+.text-\[\#00f0ff\] { color: var(--accent-cyan) !important; }
+.text-\[\#ff2e2e\] { color: var(--accent-red) !important; }
 .text-red-500 { color: var(--accent-red) !important; }
 .text-emerald-400 { color: var(--accent-green) !important; }
 .text-orange-400 { color: #f97316 !important; }

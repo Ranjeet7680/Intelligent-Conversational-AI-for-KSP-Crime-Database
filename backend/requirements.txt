@@ -3,3 +3,5 @@ uvicorn
 pandas
 scikit-learn
 pydantic
+python-jose[cryptography]
+python-multipart
