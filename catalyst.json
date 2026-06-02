@@ -1,0 +1,9 @@
+{
+  "project": {
+    "id": "42969000000023001",
+    "name": "CrimeGPT"
+  },
+  "hosting": {
+    "public": "frontend/dist"
+  }
+}
